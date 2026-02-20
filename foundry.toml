@@ -1,0 +1,46 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+evm_version = "cancun"
+via_ir = true
+solc = '0.8.26'
+fs_permissions = [
+  { access = "read", path = "./lib" },
+  { access = "read", path = "./script" },
+  { access = "write", path = "./deployments" },
+]
+optimizer_runs = 0
+bytecode_hash = "none"
+optimizer = true
+dynamic_test_linking = true
+
+[fuzz]
+runs = 1000
+
+[fmt]
+single_line_statement_blocks = "preserve"
+bracket_spacing = true
+int_types = "long"
+line_length = 120
+multiline_func_header = "params_first_multi"
+number_underscore = "thousands"
+quote_style = "double"
+tab_width = 4
+wrap_comments = false
+sort_imports = true
+contract_new_lines = false
+override_spacing = false
+
+[lint]
+lint_on_build = false
+
+[etherscan]
+base = { key = "${BASESCAN_API_KEY}" }
+
+[rpc_endpoints]
+mainnet = "${MAINNET_RPC_URL}"
+base = "${BASE_RPC_URL}"
+
+[profile.ci.fuzz]
+runs = 2_000

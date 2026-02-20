@@ -1,0 +1,35 @@
+name: CI
+
+permissions:
+  contents: read
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: Foundry project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+          submodules: recursive
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+
+      - name: Show Forge version
+        run: forge --version
+
+      - name: Run Forge fmt
+        run: forge fmt --check
+
+      - name: Run Forge tests
+        run: forge test --isolate --nmc DopplerV4PocTest -vvv
+        env:
+          FOUNDRY_PROFILE: ci
+          BASE_RPC_URL: ${{ secrets.BASE_RPC_URL }}
+          FORGE_SNAPSHOT_CHECK: true
