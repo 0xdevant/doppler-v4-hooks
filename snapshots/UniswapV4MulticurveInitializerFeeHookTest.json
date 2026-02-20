@@ -1,6 +1,6 @@
 {
-  "default afterSwap take fee to 3 beneficiaries": "341390",
-  "default beforeSwap take fee to 3 beneficiaries": "409864",
-  "gas-benchmark: beforeSwap take fee to 5 beneficiaries": "447502",
-  "gas-benchmark: beforeSwap take fee to 9 beneficiaries": "459882"
+  "default afterSwap take fee to 3 beneficiaries": "259953",
+  "default beforeSwap take fee to 3 beneficiaries": "256866",
+  "gas-benchmark: beforeSwap take fee to 5 beneficiaries": "313775",
+  "gas-benchmark: beforeSwap take fee to 9 beneficiaries": "342096"
 }
